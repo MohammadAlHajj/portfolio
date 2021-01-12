@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import * as bs from 'react-bootstrap';
 
 export default class Projects extends Component {
   render() {
     return (
-      <div>
+      <bs.Container>
         <h3>Projects</h3>
         <hr />
         <p>Software Projects</p>
@@ -20,7 +21,7 @@ export default class Projects extends Component {
           <li>Safad Al Battikh Elevated Water Tank (Supervisor)</li>
           <li>Lebanese Army Prfabricated Housing 2018 (Supervisor)</li>
         </ul>
-      </div>
+      </bs.Container>
     );
   }
 }

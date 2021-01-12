@@ -1,24 +1,33 @@
 import React, { Component } from "react";
+import * as bs from "react-bootstrap";
 
 export default class Entry extends Component {
-  render() {
-    return (
-      <div>
-        <p>{this.props.name}</p>
-        <p>{this.props.location}</p>
-        <p>{this.props.date}</p>
-        {this.props.title ? <p>{this.props.title}</p> : <div />}
-        {this.props.body ? <p>{this.props.body}</p> : <div />}
-        {this.props.items ? (
-          <ul>
-            {this.props.items.map((e) => (
-              <li>{e}</li>
-            ))}
-          </ul>
-        ) : (
-          <div />
-        )}
-      </div>
-    );
-  }
+	render() {
+		return (
+			<bs.Container fluid>
+				<bs.Row xs={1} sm={3}>
+					<bs.Col xs={12} sm={6}>
+						{this.props.name}
+					</bs.Col>
+					<bs.Col xs={12} sm={2}>
+						{this.props.location}
+					</bs.Col>
+					<bs.Col xs={12} sm={4}>
+						{this.props.date}
+					</bs.Col>
+				</bs.Row>
+				{this.props.title ? <bs.Container>{this.props.title}</bs.Container> : <bs.Container />}
+				{this.props.body ? <bs.Container>{this.props.body}</bs.Container> : <bs.Container />}
+				{this.props.items ? (
+					<bs.ListGroup>
+						{this.props.items.map((e) => (
+							<bs.ListGroupItem>{e}</bs.ListGroupItem>
+						))}
+					</bs.ListGroup>
+				) : (
+					<bs.Container />
+				)}
+			</bs.Container>
+		);
+	}
 }
