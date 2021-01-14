@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import * as bs from "react-bootstrap";
 import EntryCard from "./entry_card";
 
+import hajjEngEstVImg from '../assets/Hajj_Eng_Est_logo_v.png';
+import hajjEngEstSqrImg from '../assets/Hajj_Eng_Est_logo.png';
+
 export default class Experience extends Component {
 	render() {
 		return (
@@ -25,6 +28,8 @@ export default class Experience extends Component {
 						location="Lebanon"
 						date="10/2016  – 9/2020"
 						title="Project Manager"
+						imageV={hajjEngEstVImg}
+						imageSqr={hajjEngEstSqrImg}
 						items={[
 							"Providing company-wide IT support and maintenance",
 							"Managing and supervising multiple projects ranging from industrial products to construction projects",
