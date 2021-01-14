@@ -10,43 +10,23 @@ export default class EntryCard extends Component {
 			showModal: false,
 		};
 	}
-	// render() {
-	// 	return (
-	// 		<div>
-	// 			<a style={{ cursor: "pointer" }} onClick={() => this.setState({ showModal: true })}>
-	// 				<bs.Card>
-	// 					<bs.CardImg
-	// 						variant="top"
-	// 						src={this.props.image ? this.props.image : "holder.js/185x300"}
-	// 					/>
-	// 					<bs.Card.ImgOverlay>
-	// 						<bs.Card.Title>{this.props.name}</bs.Card.Title>
-	// 						<bs.Card.Text>{this.props.location}</bs.Card.Text>
-	// 						<bs.Card.Text>{this.props.date}</bs.Card.Text>
-	// 					</bs.Card.ImgOverlay>
-	// 				</bs.Card>
-	// 			</a>
-	// 			{this.createEntryOverlay()}
-	// 		</div>
-	// 	);
-	// }
 	render() {
 		return (
 			<div>
-				<a style={{ cursor: "pointer" }} onClick={() => this.setState({ showModal: true })}>
-					<bs.Card>
+				<bs.Button style={{ cursor: "pointer" }}  variant="link" onClick={() => this.setState({ showModal: true })}>
+					<bs.Card style={{width:185, height:300}}>
 						<bs.CardImg
 							variant="top"
 							src={this.props.imageV ? this.props.imageV : "holder.js/185x300"}
 						/>
 					</bs.Card>
-				</a>
+				</bs.Button>
 				{this.createEntryOverlay()}
 			</div>
 		);
 	}
 
-	createEntryOverlay(isPortrait) {
+	createEntryOverlay() {
 		const portView = (
 			<bs.Card>
 				<bs.Card.Header>
@@ -63,7 +43,7 @@ export default class EntryCard extends Component {
 					{this.props.title ? <bs.Card.Text>{this.props.title}</bs.Card.Text> : <bs.Container />}
 					{this.props.body ? <bs.Card.Text>{this.props.body}</bs.Card.Text> : <bs.Container />}
 					{this.props.items ? (
-						<bs.ListGroup>
+						<bs.ListGroup >
 							{this.props.items.map((e) => (
 								<bs.ListGroupItem>{e}</bs.ListGroupItem>
 							))}
@@ -75,6 +55,7 @@ export default class EntryCard extends Component {
 			</bs.Card>
 		);
 
+		
 		const landView = (
 			<Entry
 				name={this.props.name ?? null}

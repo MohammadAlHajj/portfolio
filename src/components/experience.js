@@ -2,8 +2,17 @@ import React, { Component } from "react";
 import * as bs from "react-bootstrap";
 import EntryCard from "./entry_card";
 
-import hajjEngEstVImg from '../assets/Hajj_Eng_Est_logo_v.png';
+import hajjEngEstCardImg from '../assets/Hajj_Eng_Est_logo_v.png';
 import hajjEngEstSqrImg from '../assets/Hajj_Eng_Est_logo.png';
+
+import fadelCardImg from '../assets/Fadel_card (185x300).png';
+import fadelSqrImg from '../assets/Fadel_logo.png';
+
+import yanstraCardImg from '../assets/yanstra_card.png';
+import yanstraSqrImg from '../assets/yanstra_logo.png';
+
+import interactiveLifeCardImg from '../assets/interactive_life_card.png';
+import interactiveLifeSqrImg from '../assets/interactive_life_logo.png';
 
 export default class Experience extends Component {
 	render() {
@@ -11,9 +20,11 @@ export default class Experience extends Component {
 			<bs.Container>
 				<h3>Experience</h3>
 				<hr />
-				<bs.CardDeck>
+				<bs.CardDeck >
 					<EntryCard
 						name="Yanstra"
+						imageV={yanstraCardImg}
+						imageSqr={yanstraSqrImg}
 						location="Switzerland"
 						date="9/2020 - Present"
 						title="Mobile Developer (Contract)"
@@ -25,11 +36,11 @@ export default class Experience extends Component {
 					/>
 					<EntryCard
 						name="Hajj Engineering Establishment"
+						imageV={hajjEngEstCardImg}
+						imageSqr={hajjEngEstSqrImg}
 						location="Lebanon"
 						date="10/2016  – 9/2020"
 						title="Project Manager"
-						imageV={hajjEngEstVImg}
-						imageSqr={hajjEngEstSqrImg}
 						items={[
 							"Providing company-wide IT support and maintenance",
 							"Managing and supervising multiple projects ranging from industrial products to construction projects",
@@ -40,6 +51,8 @@ export default class Experience extends Component {
 					/>
 					<EntryCard
 						name="Interactive Life"
+						imageV={interactiveLifeCardImg}
+						imageSqr={interactiveLifeSqrImg}
 						location="Lebanon"
 						date="3/2016 – 10/2016"
 						title="Android Developer"
@@ -51,6 +64,8 @@ export default class Experience extends Component {
 					/>
 					<EntryCard
 						name="Fadel SAL"
+						imageV={fadelCardImg}
+						imageSqr={fadelSqrImg}
 						location="Lebanon"
 						date="9/2016 – 12/2016"
 						title="Junior Developer"
