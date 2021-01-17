@@ -2,25 +2,30 @@ import React, { Component } from "react";
 import * as bs from "react-bootstrap";
 import EntryCard from "./entry_card";
 
-import hajjEngEstCardImg from '../assets/Hajj_Eng_Est_logo_v.png';
-import hajjEngEstSqrImg from '../assets/Hajj_Eng_Est_logo.png';
+import hajjEngEstCardImg from "../assets/Hajj_Eng_Est_logo_v.png";
+import hajjEngEstSqrImg from "../assets/Hajj_Eng_Est_logo.png";
 
-import fadelCardImg from '../assets/Fadel_card (185x300).png';
-import fadelSqrImg from '../assets/Fadel_logo.png';
+import fadelCardImg from "../assets/Fadel_card (185x300).png";
+import fadelSqrImg from "../assets/Fadel_logo.png";
 
-import yanstraCardImg from '../assets/yanstra_card.png';
-import yanstraSqrImg from '../assets/yanstra_logo.png';
+import yanstraCardImg from "../assets/yanstra_card.png";
+import yanstraSqrImg from "../assets/yanstra_logo.png";
 
-import interactiveLifeCardImg from '../assets/interactive_life_card.png';
-import interactiveLifeSqrImg from '../assets/interactive_life_logo.png';
+import interactiveLifeCardImg from "../assets/interactive_life_card.png";
+import interactiveLifeSqrImg from "../assets/interactive_life_logo.png";
+
+import bgImg from "../assets/images/bg1.jpg"
 
 export default class Experience extends Component {
 	render() {
 		return (
-			<bs.Container>
+			<div >
+
+		
+			<bs.Container >
 				<h3>Experience</h3>
 				<hr />
-				<bs.CardDeck >
+				<bs.CardDeck>
 					<EntryCard
 						name="Yanstra"
 						imageV={yanstraCardImg}
@@ -76,7 +81,7 @@ export default class Experience extends Component {
 						]}
 					/>
 				</bs.CardDeck>
-			</bs.Container>
+			</bs.Container>	</div>
 		);
 	}
 }

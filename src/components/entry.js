@@ -4,7 +4,7 @@ import * as bs from "react-bootstrap";
 export default class Entry extends Component {
 	render() {
 		return (
-			<bs.Container fluid>
+			<bs.Container style={{backgroundColor:"#0000"}} fluid >
 				<bs.Row xs={1} sm={2}>
 					<bs.Col xs={12} sm={4} className="my-auto">
 						<bs.Image src={this.props.image} fluid />
@@ -20,7 +20,7 @@ export default class Entry extends Component {
 						{this.props.items ? (
 							<bs.ListGroup>
 								{this.props.items.map((e) => (
-									<bs.ListGroupItem>{e}</bs.ListGroupItem>
+									<bs.ListGroupItem style={{backgroundColor:"#0000"}}>{e}</bs.ListGroupItem>
 								))}
 							</bs.ListGroup>
 						) : null}

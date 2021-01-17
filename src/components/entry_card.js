@@ -13,8 +13,20 @@ export default class EntryCard extends Component {
 	render() {
 		return (
 			<div>
-				<bs.Button style={{ cursor: "pointer" }}  variant="link" onClick={() => this.setState({ showModal: true })}>
-					<bs.Card style={{width:185, height:300}}>
+				<bs.Button
+					style={{ cursor: "pointer" }}
+					variant="link"
+					onClick={() => this.setState({ showModal: true })}
+				>
+					<bs.Card
+						style={{
+							width: 185,
+							height: 300,
+							background: "#BBBC",
+							borderRadius: "0.5em",
+							backgroundClip: "border-box",
+						}}
+					>
 						<bs.CardImg
 							variant="top"
 							src={this.props.imageV ? this.props.imageV : "holder.js/185x300"}
@@ -28,8 +40,9 @@ export default class EntryCard extends Component {
 
 	createEntryOverlay() {
 		const portView = (
-			<bs.Card>
-				<bs.Card.Header>
+			
+			<bs.Card className="translucent" bg='dark'>
+				<bs.Card.Header className="translucent">
 					<bs.Card.Title>{this.props.name}</bs.Card.Title>
 				</bs.Card.Header>
 				<bs.CardImg
@@ -43,9 +56,9 @@ export default class EntryCard extends Component {
 					{this.props.title ? <bs.Card.Text>{this.props.title}</bs.Card.Text> : <bs.Container />}
 					{this.props.body ? <bs.Card.Text>{this.props.body}</bs.Card.Text> : <bs.Container />}
 					{this.props.items ? (
-						<bs.ListGroup >
+						<bs.ListGroup>
 							{this.props.items.map((e) => (
-								<bs.ListGroupItem>{e}</bs.ListGroupItem>
+								<bs.ListGroupItem style={{backgroundColor:"#0000"}}>{e}</bs.ListGroupItem>
 							))}
 						</bs.ListGroup>
 					) : (
@@ -55,7 +68,6 @@ export default class EntryCard extends Component {
 			</bs.Card>
 		);
 
-		
 		const landView = (
 			<Entry
 				name={this.props.name ?? null}
@@ -64,18 +76,20 @@ export default class EntryCard extends Component {
 				title={this.props.title ?? null}
 				body={this.props.body ?? null}
 				items={this.props.items ?? null}
-				image={this.props.imageSqr}
+				image={this.props.imageSqr ?? null}
 			/>
 		);
 
 		return (
 			<bs.Modal
+				contentClassName="translucent"
 				size="xl"
 				centered
 				show={this.state.showModal}
 				onHide={() => this.setState({ showModal: false })}
 			>
-				<bs.Modal.Body>
+				<bs.Modal.Header className="translucent" closeButton />
+				<bs.Modal.Body className="translucent">
 					<LandscapeMode>{landView}</LandscapeMode>
 					<PortraitMode>{portView}</PortraitMode>
 				</bs.Modal.Body>

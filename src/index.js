@@ -7,10 +7,15 @@ import Projects from "./components/projects";
 import Skills from "./components/skills";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/css/bootstrap.css";
-// import "./index.css";
+import "./index.css";
 import * as bs from "react-bootstrap";
 import "holderjs";
 
+import bgImg1 from "./assets/images/bg1.jpg";
+import bgImg2 from "./assets/images/bg2.jpg";
+import bgImg3 from "./assets/images/bg3.jpg";
+import bgImg4 from "./assets/images/bg4.jpg";
+import bgImg5 from "./assets/images/bg5.jpg";
 
 export default class Site extends React.Component {
 	static overview = "overview";
@@ -19,28 +24,45 @@ export default class Site extends React.Component {
 	static projects = "projects";
 	static skills = "skills";
 
+	tabs = [
+		[Site.overview, <Overview changeTab={this.changeTab} />, bgImg1],
+		[Site.education, <Education changeTab={this.changeTab} />, bgImg2],
+		[Site.experience, <Experience changeTab={this.changeTab} />, bgImg3],
+		[Site.projects, <Projects changeTab={this.changeTab} />, bgImg4],
+		[Site.skills, <Skills changeTab={this.changeTab} />, bgImg5],
+	];
+
 	constructor(props) {
 		super(props);
 		this.state = { activeKey: Site.overview };
 	}
 	render() {
-		var tabs = [
-			[Site.overview, <Overview changeTab={this.changeTab} />],
-			[Site.education, <Education changeTab={this.changeTab} />],
-			[Site.experience, <Experience changeTab={this.changeTab} />],
-			[Site.projects, <Projects changeTab={this.changeTab} />],
-			[Site.skills, <Skills changeTab={this.changeTab} />],
-		];
+		
 		return (
-			<div>
-				<bs.Tabs id="sections" activeKey={this.state.activeKey} onSelect={(s)=>this.setState({activeKey: s})}>
-					{tabs.map((tab,i) => (
-						<bs.Tab key={i} eventKey={tab[0]} title={tab[0]}>
-							{tab[1]}
-						</bs.Tab>
-					))}
-				</bs.Tabs>
-			</div>
+			<bs.Tabs 
+				style={{background:"#333333"}}
+				id="sections"
+				activeKey={this.state.activeKey}
+				onSelect={(s) => this.setState({ activeKey: s })}
+			>
+				{this.tabs.map((tab, i) => (
+					<bs.Tab
+						key={i}
+						eventKey={tab[0]}
+						title={tab[0]}
+						style={{
+							height: "100vh",
+							width: "auto",
+							backgroundSize: "cover",
+							backgroundEepeat: "no-repeat",
+							// backgroundPosition: "top center",
+							backgroundImage: `url(${tab[2]})`,
+						}}
+					>
+						{tab[1]}
+					</bs.Tab>
+				))}
+			</bs.Tabs>
 		);
 	}
 
@@ -49,4 +71,4 @@ export default class Site extends React.Component {
 
 // ========================================
 
-ReactDOM.render(<Site />, document.getElementById("root"));
+ReactDOM.render(<Site  className="Site" />, document.getElementById("root"));

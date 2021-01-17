@@ -1,0 +1,15 @@
+html,
+body,
+#reactapp,
+.Site {
+	height: 100%;
+	color: #fff;
+}
+.Site {
+	display: flex;
+	height: 100vh;
+}
+
+.translucent{
+	background: #0004;
+}
