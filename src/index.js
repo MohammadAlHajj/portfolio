@@ -1,4 +1,5 @@
 import React from "react";
+import { createRoot } from 'react-dom/client';
 import ReactDOM from "react-dom";
 import Education from "./components/education";
 import Experience from "./components/experience";
@@ -17,8 +18,10 @@ import bgImg3 from "./assets/images/bg3.jpg";
 import bgImg4 from "./assets/images/bg4.jpg";
 import bgImg5 from "./assets/images/bg5.jpg";
 
+
+
 export default class Site extends React.Component {
-	static overview = "overview";
+	static  overview = "overview";
 	static education = "education";
 	static experience = "experience";
 	static projects = "projects";
@@ -50,13 +53,17 @@ export default class Site extends React.Component {
 						key={i}
 						eventKey={tab[0]}
 						title={tab[0]}
+						// className="background-image"
 						style={{
-							height: "100vh",
-							width: "auto",
+							minHeight: "100vh",
+							width: "100vw",
 							backgroundSize: "cover",
-							backgroundEepeat: "no-repeat",
-							// backgroundPosition: "top center",
+							// backgroundEepeat: "no-repeat",
+							backgroundPosition: "top center",
 							backgroundImage: `url(${tab[2]})`,
+							// paddingBottom: `69`
+
+							// width: 100vw; min-height: 100vh; background: url("IMAGE"); background-size: cover;
 						}}
 					>
 						{tab[1]}
@@ -71,4 +78,7 @@ export default class Site extends React.Component {
 
 // ========================================
 
-ReactDOM.render(<Site  className="Site" />, document.getElementById("root"));
+// ReactDOM.render(<Site  className="Site" />, document.getElementById("root"));
+const container = document.getElementById('root');
+const root = createRoot(container); // createRoot(container!) if you use TypeScript
+root.render(<Site className="Site" />);
