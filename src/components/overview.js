@@ -1,5 +1,5 @@
 import React from "react";
-import * as bs from "react-bootstrap";
+import { Carousel, Container, Image } from "react-bootstrap";
 import Site from "..";
 
 import eduImg from "../assets/AUB_banner_done.jpg";
@@ -17,20 +17,20 @@ export default class Overview extends React.Component {
 			[Site.projects, "An assortment of wide ranging projects covered", projectsImg],
 		];
 		return (
-			<bs.Container>
-				<bs.Carousel>
+			<Container>
+				<Carousel>
 					{carousels.map((item, i) => (
-						<bs.Carousel.Item key={i} onClick={() => this.props.changeTab(item[0])}>
+						<Carousel.Item key={i} onClick={() => this.props.changeTab(item[0])}>
 							{/* <img src="holder.js/800x400?text= &bg=373940" /> */}
-							<bs.Image width={800} src={item[2]} fluid/>
-							<bs.Carousel.Caption>
+							<Image width={800} src={item[2]} fluid/>
+							<Carousel.Caption>
 								<h4>{item[0]}</h4>
 								<p>{item[1]}</p>
-							</bs.Carousel.Caption>
-						</bs.Carousel.Item>
+							</Carousel.Caption>
+						</Carousel.Item>
 					))}
-				</bs.Carousel>
-			</bs.Container>
+				</Carousel>
+			</Container>
 		);
 	}
 }

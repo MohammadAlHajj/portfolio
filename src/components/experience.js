@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import * as bs from "react-bootstrap";
 import EntryCard from "./entry_card";
 
 import hajjEngEstCardImg from "../assets/Hajj_Eng_Est_logo_v.png";
@@ -14,6 +13,7 @@ import yanstraSqrImg from "../assets/yanstra_logo.png";
 import interactiveLifeCardImg from "../assets/interactive_life_card.png";
 import interactiveLifeSqrImg from "../assets/interactive_life_logo.png";
 import { Desktop, Mobile, Tablet } from "./helpers/MediaQueryHelpers";
+import { Container, Row } from "react-bootstrap";
 
 // import bgImg from "../assets/images/bg1.jpg"
 
@@ -25,22 +25,22 @@ export default class Experience extends Component {
 		
 		return (
 			<>
-			<bs.Container >
+			<Container >
 				<h3>Experience</h3>
 				<hr />
 				<Desktop>{this.getExpList({justifyCenter: false})}</Desktop>
 				<Tablet>{this.getExpList()}</Tablet>
 				<Mobile>{this.getExpList()}</Mobile>
-				{/* <Mobile><bs.Container fluid className="d-flex justify-content-center" style={{maxWidth: "100vw"}} >{expList}</bs.Container></Mobile> */}
+				{/* <Mobile><Container fluid className="d-flex justify-content-center" style={{maxWidth: "100vw"}} >{expList}</Container></Mobile> */}
 				{/* <Default>Not mobile (desktop or laptop or tablet)</Default> */}
 				
-			</bs.Container>	</>
+			</Container>	</>
 		);
 	}
 	getExpList(dFlex = true, justifyCenter = true){
 		let className = justifyCenter?'justify-content-center ':'';
 		return (
-			<bs.Row className={className}>
+			<Row className={className}>
 				<EntryCard
 					key={1}
 					name="Yanstra"
@@ -95,7 +95,7 @@ export default class Experience extends Component {
 						"Used Oracle Database to store the data",
 						"Used Hibernate as ORM to link the database to the web pages",
 					]} />
-			</bs.Row>
+			</Row>
 		);
 	}
 }

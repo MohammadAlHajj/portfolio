@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import * as bs from "react-bootstrap";
+import { Card, Col, Container, Image, Row } from "react-bootstrap";
 import SkillBar from "react-skillbars";
 // import {useImage} from 'react-image'
 
@@ -16,8 +16,8 @@ function makeExpCard(title, name, width, height, isInSrc = false, original = tru
   //   (name + "-plains" + (wordmark ? "-wordmark" : "") + "." + ext);
   // let tested = false;
   return (
-    <bs.Col key={name} className="translucent m-2 p-3" style={{ flex: 0 }}>
-      <bs.Image className="p-2" title={title}
+    <Col key={name} className="translucent m-2 p-3" style={{ flex: 0 }}>
+      <Image className="p-2" title={title}
         src={path}
         width={width} height={height} 
       // onError={(e)=>changeSrc(e, path2) }
@@ -38,7 +38,7 @@ function makeExpCard(title, name, width, height, isInSrc = false, original = tru
       //   currentTarget.src=path2;
       // }}
       />
-    </bs.Col>
+    </Col>
   );
 }
 // function changeSrc(e, path2) {
@@ -57,13 +57,13 @@ export default class Skills extends Component {
     ];
     const iconSize = 80;
     return (
-      <bs.Container >
-        <bs.Container className="d-flex justify-content-evenly">
+      <Container >
+        <Container className="d-flex justify-content-evenly">
           <h3>Skills</h3>
-        </bs.Container>
+        </Container>
         <hr />
         {/* languages*/}
-        <bs.Row fluid="lg" className="d-flex justify-content-evenly">
+        <Row fluid="lg" className="d-flex justify-content-evenly">
           {/* each language */}
           {langArr.map((item, i) => {
             const skills = [
@@ -113,27 +113,27 @@ export default class Skills extends Component {
 
             return (
               <>
-                <bs.Col xs={12} md={5}>
+                <Col xs={12} md={5}>
                   <h3>{item[0]}</h3>
                   <SkillBar skills={skills} colors={colors} height="2.5vh" animationDuration={2000} />
-                </bs.Col>
-                {/* <Desktop>{i !== langArr.length - 1 && <bs.Col xs={0} md={2} />}</Desktop>
-                <Tablet>{i !== langArr.length - 1 && <bs.Col xs={0} md={2} />}</Tablet> */}
+                </Col>
+                {/* <Desktop>{i !== langArr.length - 1 && <Col xs={0} md={2} />}</Desktop>
+                <Tablet>{i !== langArr.length - 1 && <Col xs={0} md={2} />}</Tablet> */}
               </>
             );
           })}
-        </bs.Row>
+        </Row>
         {/* languages*/}
 
         <hr />
 
-        <bs.Row>
-          <bs.Col>
-            <bs.Card style={{ background: "transparent" }}>
-              <bs.Card.Header><h5>Core</h5></bs.Card.Header>
+        <Row>
+          <Col>
+            <Card style={{ background: "transparent" }}>
+              <Card.Header><h5>Core</h5></Card.Header>
 
-              <bs.Card.Body>
-                <bs.Row className="d-flex justify-content-evenly">
+              <Card.Body>
+                <Row className="d-flex justify-content-evenly">
                   {[
                     // languages
                     ["Java", "java"],
@@ -158,19 +158,19 @@ export default class Skills extends Component {
                   ].map((item) => (
                     <>{makeExpCard(item[0], item[1], iconSize, iconSize, item[2], item[3], item[4],  item[5], item[6])}</>
                   ))}
-                </bs.Row>
-              </bs.Card.Body>
-            </bs.Card>
-          </bs.Col>
+                </Row>
+              </Card.Body>
+            </Card>
+          </Col>
 
-          <bs.Col xs={0} md={1} className="d-flex justify-content-center">
+          <Col xs={0} md={1} className="d-flex justify-content-center">
             <div className="divider" />
-          </bs.Col>
-          <bs.Col>
-            <bs.Card style={{ background: "transparent" }}>
-              <bs.Card.Header><h5>Honorable Mentions</h5></bs.Card.Header>
-              <bs.Card.Body>
-                <bs.Row className="d-flex justify-content-evenly">
+          </Col>
+          <Col>
+            <Card style={{ background: "transparent" }}>
+              <Card.Header><h5>Honorable Mentions</h5></Card.Header>
+              <Card.Body>
+                <Row className="d-flex justify-content-evenly">
                   {[
                     // languages
                     ["JavaScript", "javascript"],
@@ -195,12 +195,12 @@ export default class Skills extends Component {
                   ].map((item) => (
                     <>{makeExpCard(item[0], item[1], iconSize, iconSize, item[2], item[3], item[4])}</>
                   ))}
-                </bs.Row>
-              </bs.Card.Body>
-            </bs.Card>
-          </bs.Col>
-        </bs.Row>
-      </bs.Container>
+                </Row>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }

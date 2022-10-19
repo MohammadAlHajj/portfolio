@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import * as bs from "react-bootstrap";
+import { Button, Card, CardImg, Container, ListGroup, ListGroupItem, Modal } from "react-bootstrap";
 import Entry from "./entry";
 import { LandscapeMode, PortraitMode } from "./helpers/MediaQueryHelpers";
 
@@ -13,7 +13,7 @@ export default class EntryCard extends Component {
   render() {
     return (
       <>
-        <bs.Button 
+        <Button 
           className="m-1"  
           variant="link" onClick={() => this.setState({ showModal: true })}
           style={{
@@ -21,7 +21,7 @@ export default class EntryCard extends Component {
           height: 300,
           padding: 3,
         }}>
-          <bs.Card
+          <Card
             style={{
               background: "#BBBA",
               border: 0,
@@ -29,7 +29,7 @@ export default class EntryCard extends Component {
               padding: 0,
             }}
           >
-            <bs.CardImg
+            <CardImg
               // variant="top"
               style={{
                 margin: 0,
@@ -37,8 +37,8 @@ export default class EntryCard extends Component {
               }}
               src={this.props.imageV ? this.props.imageV : "holder.js/185x300"}
             />
-          </bs.Card>
-        </bs.Button>
+          </Card>
+        </Button>
         {this.createEntryOverlay()}
       </>
     );
@@ -46,31 +46,31 @@ export default class EntryCard extends Component {
 
   createEntryOverlay() {
     const portView = (
-      <bs.Card className="translucent" bg="dark">
-        <bs.Card.Header className="translucent">
-          <bs.Card.Title>{this.props.name}</bs.Card.Title>
-        </bs.Card.Header>
-        <bs.CardImg
+      <Card className="translucent" bg="dark">
+        <Card.Header className="translucent">
+          <Card.Title>{this.props.name}</Card.Title>
+        </Card.Header>
+        <CardImg
           variant="top"
           fluid
           src={this.props.imageSqr ? this.props.imageSqr : "holder.js/185x185"}
-        ></bs.CardImg>
-        <bs.Card.Body>
-          <bs.Card.Text>{this.props.location}</bs.Card.Text>
-          <bs.Card.Text>{this.props.date}</bs.Card.Text>
-          {this.props.title ? <bs.Card.Text>{this.props.title}</bs.Card.Text> : <bs.Container />}
-          {this.props.body ? <bs.Card.Text>{this.props.body}</bs.Card.Text> : <bs.Container />}
+        ></CardImg>
+        <Card.Body>
+          <Card.Text>{this.props.location}</Card.Text>
+          <Card.Text>{this.props.date}</Card.Text>
+          {this.props.title ? <Card.Text>{this.props.title}</Card.Text> : <Container />}
+          {this.props.body ? <Card.Text>{this.props.body}</Card.Text> : <Container />}
           {this.props.items ? (
-            <bs.ListGroup>
+            <ListGroup>
               {this.props.items.map((e) => (
-                <bs.ListGroupItem key={e} style={{ backgroundColor: "#0000" }}>{e}</bs.ListGroupItem>
+                <ListGroupItem key={e} style={{ backgroundColor: "#0000" }}>{e}</ListGroupItem>
               ))}
-            </bs.ListGroup>
+            </ListGroup>
           ) : (
-            <bs.Container />
+            <Container />
           )}
-        </bs.Card.Body>
-      </bs.Card>
+        </Card.Body>
+      </Card>
     );
 
     const landView = (
@@ -86,19 +86,19 @@ export default class EntryCard extends Component {
     );
 
     return (
-      <bs.Modal
+      <Modal
         contentClassName="translucent"
         size="xl"
         centered
         show={this.state.showModal}
         onHide={() => this.setState({ showModal: false })}
       >
-        <bs.Modal.Header className="translucent" closeButton />
-        <bs.Modal.Body className="translucent">
+        <Modal.Header className="translucent" closeButton />
+        <Modal.Body className="translucent">
           <LandscapeMode>{landView}</LandscapeMode>
           <PortraitMode>{portView}</PortraitMode>
-        </bs.Modal.Body>
-      </bs.Modal>
+        </Modal.Body>
+      </Modal>
     );
   }
 }
