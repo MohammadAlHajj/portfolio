@@ -133,7 +133,7 @@ export default class Skills extends Component {
               <bs.Card.Header><h5>Core</h5></bs.Card.Header>
 
               <bs.Card.Body>
-                <bs.Row>
+                <bs.Row className="d-flex justify-content-evenly">
                   {[
                     // languages
                     ["Java", "java"],
@@ -170,7 +170,7 @@ export default class Skills extends Component {
             <bs.Card style={{ background: "transparent" }}>
               <bs.Card.Header><h5>Honorable Mentions</h5></bs.Card.Header>
               <bs.Card.Body>
-                <bs.Row>
+                <bs.Row className="d-flex justify-content-evenly">
                   {[
                     // languages
                     ["JavaScript", "javascript"],

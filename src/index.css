@@ -16,33 +16,24 @@ body,
 
 .divider {
 	background-color:#34be5b;
-	/* border-left:solid 1px #000;
-	border-right:solid 1px #000; */
 	bottom:-5%;
-	/* width: 10vw; */
-	/* left:1vw; */
-	/* position:absolute; */
-	/* right:1vw; */
 	top:-5%;
 	z-index:1;
 	transform:skew(-5deg);
-
 	display: inline-block;
 	width: 0.5em;
-	/* background-color: black; */
 	margin: 0 0.5em;
 	height: 100%;
 }
 
-.background-image {
-	/* background-image: url("responsie.jpg"); */
-	/* background-position: center center;
-	background-size: contain; */
-	/* width: 100%; */
-	height: auto;
-	padding-bottom: 69%;
-}
-
 h3{
 	color: #bddbc5;
+}
+
+.mh-full-page{
+	min-height: 100vh;
+	width: 100vw;
+	background-size: cover;
+	background-position: top center;
+	background-color: #28292a;
 }
