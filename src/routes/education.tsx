@@ -1,5 +1,6 @@
+import { Entry } from "components/entry";
 import React, { Component } from "react";
-import Entry from "./entry";
+import AubImg from "assets/aub_logo.png";
 
 export default class Education extends Component {
 	render() {
@@ -13,6 +14,7 @@ export default class Education extends Component {
 					date="09/2011 – 06/2015"
 					title="Bachelor in Computer Science"
 					body="Relevant Courses Taken: C/C++ Programming, Software Engineering, Algorithms and Data Structured, Web Programming and Design, Database Systems"
+					image={AubImg}
 				/>
 			</>
 		);

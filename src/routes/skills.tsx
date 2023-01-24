@@ -1,15 +1,23 @@
 import React, { Component } from "react";
 import { Card, Col, Container, Image, Row } from "react-bootstrap";
-import SkillBar from "react-skillbars";
+import { SkillBar, SkillBarColor } from "react-skillbars";
 // import {useImage} from 'react-image'
 
-
-function makeExpCard(title, name, width, height, isInSrc = false, original = true, wordmark = false, ext = "svg") {
+function makeExpCard(
+  title?: any,
+  name?: any,
+  width?: any,
+  height?: any,
+  isInSrc: any = false,
+  original: any = true,
+  wordmark: any = false,
+  ext: any = "svg"
+) {
   let path =
     process.env.PUBLIC_URL +
     ("/icons/" + name + "/") +
     (name + (original ? "-original" : "-plain") + (wordmark ? "-wordmark" : "") + "." + ext);
-  if(isInSrc) path =  process.env.PUBLIC_URL + "/icons/" + name + "." + ext;
+  if (isInSrc) path = process.env.PUBLIC_URL + "/icons/" + name + "." + ext;
   console.log(path);
   //   process.env.PUBLIC_URL +
   //   ("/icons/" + name + "/") +
@@ -17,26 +25,29 @@ function makeExpCard(title, name, width, height, isInSrc = false, original = tru
   // let tested = false;
   return (
     <Col key={name} className="translucent m-2 p-3" style={{ flex: 0 }}>
-      <Image className="p-2" title={title}
+      <Image
+        className="p-2"
+        title={title}
         src={path}
-        width={width} height={height} 
-      // onError={(e)=>changeSrc(e, path2) }
-      // onError={(e) => {
-      //   // if(!tested){
-      //     // if(e.target.src == path2)
-      //       // e.target.removeEventListener("error");
-      //     console.log(e.currentTarget.onerror);
-      //     console.log(e.currentTarget.src);
-      //     e.currentTarget.onerror = null;
-      //     e.currentTarget.src = path2;
-      //     // tested = true;
-      //     console.log("hi");
-      //   // }
-      // }} 
-      // onError={({ currentTarget }) => {
-      //   currentTarget.onerror = null; // prevents looping
-      //   currentTarget.src=path2;
-      // }}
+        width={width}
+        height={height}
+        // onError={(e)=>changeSrc(e, path2) }
+        // onError={(e) => {
+        //   // if(!tested){
+        //     // if(e.target.src == path2)
+        //       // e.target.removeEventListener("error");
+        //     console.log(e.currentTarget.onerror);
+        //     console.log(e.currentTarget.src);
+        //     e.currentTarget.onerror = null;
+        //     e.currentTarget.src = path2;
+        //     // tested = true;
+        //     console.log("hi");
+        //   // }
+        // }}
+        // onError={({ currentTarget }) => {
+        //   currentTarget.onerror = null; // prevents looping
+        //   currentTarget.src=path2;
+        // }}
       />
     </Col>
   );
@@ -49,6 +60,46 @@ function makeExpCard(title, name, width, height, isInSrc = false, original = tru
 //   e.target.src = path2;
 // }
 
+declare module "react-skillbars" {
+  interface SkillBarColor {
+    background: String;
+    bar: {
+      hue: number;
+      saturation: {
+        minimum: number;
+        maximum: number;
+      };
+      level: {
+        minimum: number;
+        maximum: number;
+      };
+    };
+    title: {
+      text: {
+        hue: number;
+        saturation: {
+          minimum: number;
+          maximum: number;
+        };
+        level: {
+          minimum: number;
+          maximum: number;
+        };
+      };
+      background: {
+        hue: number;
+        saturation: {
+          minimum: number;
+          maximum: number;
+        };
+        level: {
+          minimum: number;
+          maximum: number;
+        };
+      };
+    };
+  }
+}
 export default class Skills extends Component {
   render() {
     const langArr = [
@@ -57,7 +108,7 @@ export default class Skills extends Component {
     ];
     const iconSize = 80;
     return (
-      <Container >
+      <Container>
         <Container className="d-flex justify-content-evenly">
           <h3>Skills</h3>
         </Container>
@@ -67,12 +118,13 @@ export default class Skills extends Component {
           {/* each language */}
           {langArr.map((item, i) => {
             const skills = [
-              { type: "Read", level: item[1] * 20 },
-              { type: "Write", level: item[2] * 20 },
-              { type: "Speak", level: item[3] * 20 },
-              { type: "Listen", level: item[4] * 20 },
+              { type: "Read", level: (item[1] as number) * 20 },
+              { type: "Write", level: (item[2] as number) * 20 },
+              { type: "Speak", level: (item[3] as number) * 20 },
+              { type: "Listen", level: (item[4] as number) * 20 },
             ];
-            const colors = {
+
+            const colors: SkillBarColor = {
               background: "#34be5b",
               bar: {
                 hue: 137,
@@ -130,7 +182,9 @@ export default class Skills extends Component {
         <Row>
           <Col>
             <Card style={{ background: "transparent" }}>
-              <Card.Header><h5>Core</h5></Card.Header>
+              <Card.Header>
+                <h5>Core</h5>
+              </Card.Header>
 
               <Card.Body>
                 <Row className="d-flex justify-content-evenly">
@@ -140,7 +194,7 @@ export default class Skills extends Component {
                     ["Dart", "dart", true],
                     ["SQL", "sql", true],
                     ["PL/SQL", "plsql", true],
-                    ["Blueprints (Unreal Engine)", "unreal-engine-white", true, null, null,"png"],
+                    ["Blueprints (Unreal Engine)", "unreal-engine-white", true, null, null, "png"],
                     // frameworks
                     ["Flutter", "flutter", true],
                     ["Android", "android"],
@@ -148,15 +202,17 @@ export default class Skills extends Component {
                     ["JavaFX", "java-fx", true],
                     // Utils
                     ["Git", "git"],
-                    ["Gradle", "gradle",null ,false],
+                    ["Gradle", "gradle", null, false],
                     ["Intellij", "intellij"],
                     ["Postman", "postman", true],
-                    ["Unreal Engine 4", "unreal-engine-white", true, null, null,"png"],
+                    ["Unreal Engine 4", "unreal-engine-white", true, null, null, "png"],
                     // OS
                     ["Linux", "linux"],
                     ["Windows", "windows", true],
                   ].map((item) => (
-                    <>{makeExpCard(item[0], item[1], iconSize, iconSize, item[2], item[3], item[4],  item[5], item[6])}</>
+                    <>
+                      {makeExpCard(item[0], item[1], iconSize, iconSize, item[2], item[3], item[4], item[5])}
+                    </>
                   ))}
                 </Row>
               </Card.Body>
@@ -168,7 +224,9 @@ export default class Skills extends Component {
           </Col>
           <Col>
             <Card style={{ background: "transparent" }}>
-              <Card.Header><h5>Honorable Mentions</h5></Card.Header>
+              <Card.Header>
+                <h5>Honorable Mentions</h5>
+              </Card.Header>
               <Card.Body>
                 <Row className="d-flex justify-content-evenly">
                   {[
@@ -180,14 +238,14 @@ export default class Skills extends Component {
                     ["Python", "python"],
                     ["PHP", "php"],
                     ["C/C++", "cplusplus"],
-                    ["Cucumber", "cucumber",null, false],
+                    ["Cucumber", "cucumber", null, false],
                     // frameworks
                     ["HTML", "html5"],
                     ["CSS", "css3"],
                     ["React", "react"],
                     ["Java Spring", "spring", true],
                     ["Hibernate", "hibernate", true],
-                    ["Laravel", "laravel",null, false],
+                    ["Laravel", "laravel", null, false],
                     // Utils
                     ["Docker", "docker"],
                     ["Bash", "bash", true],
