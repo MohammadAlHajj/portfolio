@@ -1,4 +1,3 @@
-import { Site } from "index";
 import React from "react";
 import { Carousel, Container, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
