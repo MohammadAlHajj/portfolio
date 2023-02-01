@@ -1,17 +1,21 @@
 
-import hajjEngEstCardImg from "../assets/Hajj_Eng_Est_logo_v.png";
-import hajjEngEstSqrImg from "../assets/Hajj_Eng_Est_logo.png";
+import hajjEngEstCardImg from "assets/Hajj_Eng_Est_logo_v.png";
+import hajjEngEstSqrImg from "assets/Hajj_Eng_Est_logo.png";
 
-import fadelCardImg from "../assets/Fadel_card (185x300).png";
-import fadelSqrImg from "../assets/Fadel_logo.png";
+import fadelCardImg from "assets/Fadel_card (185x300).png";
+import fadelSqrImg from "assets/Fadel_logo.png";
 
-import yanstraCardImg from "../assets/yanstra_card.png";
-import yanstraSqrImg from "../assets/yanstra_logo.png";
+import yanstraCardImg from "assets/yanstra_card.png";
+import yanstraSqrImg from "assets/yanstra_logo.png";
 
 // import interactiveLifeCardImg from "assets/interactive_life_card.png";
 // import interactiveLifeSqrImg from "assets/interactive_life_logo.png";
 import interactiveLifeCardImg from "assets/interactive_life_card1.webp";
 import interactiveLifeSqrImg from "assets/Interactive_life_Logo1.webp";
+
+import netvariantCardImg from "assets/netvariant_logo_fill.webp";
+import netvariantSqrImg from "assets/netvariant_logo_fill.webp";
+
 import { Row } from "react-bootstrap";
 import { Desktop, Mobile } from "components/helpers/MediaQueryHelpers";
 import { PlayingCard } from "components/entry_card";
@@ -24,6 +28,21 @@ export function Experience() {
     let className = justifyCenter ? "justify-content-center " : "";
     return (
       <Row className={className}>
+        <PlayingCard
+          key={5}
+          name="Netvariant"
+          imageV={netvariantCardImg}
+          imageSqr={netvariantSqrImg}
+          location="Lebanon"
+          date="4/2021 - 6/2022"
+          title="Senior Backend Developer"
+          items={[
+            "Lead the company’s ERP Human Resources project team.",
+            "Built the backend of a religious app project from scratch. My knowledge in mobile development and the project field made for seamless API integration and a 30% decrease in development time.",
+            "Implemented Microsoft LDAP integration into Moqui Framework.",
+            "Researched and pushed for the move to programming alternatives for better quality and higher productivity including test driven development (TDD), Functional Programming, Kotlin, and Lomboc.",
+          ]}
+        />
         <PlayingCard
           key={1}
           name="Yanstra"

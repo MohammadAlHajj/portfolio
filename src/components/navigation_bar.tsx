@@ -138,7 +138,8 @@ export function NavigationBar(props: { setModeFunc: MouseEventHandler<HTMLElemen
             textColor="inherit"
           >      
           {Object.entries(pages).map(([key, value], index) =>
-            <Tab label={key} value={key} component={Link} to={value} color="inherit" />
+          // <></>
+            <Tab key={key} label={key} value={key} component={Link} to={value} color="inherit" />
             // <Link to={value} >
             //   <Button variant="contained" style={{padding:'1.35em'}}>{key}</Button>
             //   <Divider orientation="vertical" variant="middle" flexItem /> 
@@ -195,7 +196,7 @@ export function NavigationBar(props: { setModeFunc: MouseEventHandler<HTMLElemen
           />
           <List>
             {Object.entries(pages).map(([key, value], index) => 
-              <ListItemButton component={Link} to={value} onClick={onItemClick(key)}>{key}</ListItemButton>
+              <ListItemButton key={key} component={Link} to={value} onClick={onItemClick(key)}>{key}</ListItemButton>
             )}
           </List>
         </Drawer>

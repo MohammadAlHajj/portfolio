@@ -127,7 +127,7 @@ export function PlayingCard(props: {
         margin:0,
       }}> */}
       <Card
-        className="m-1"
+        className="m-1 d-flex"
         style={{
           // background: "#BBBA",
           width: 185,
@@ -144,6 +144,7 @@ export function PlayingCard(props: {
             style={{
               margin: 0,
               padding: 0,
+              objectFit: "contain",
             }}
             image={props.imageV ?? "holder.js/185x300"}
           />

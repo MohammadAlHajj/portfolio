@@ -1,6 +1,9 @@
-import { Container, List, ListItem, ListItemText } from "@mui/material";
+import { Container, List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
 import { Col, Image, Row } from "react-bootstrap";
 import { isMobile, isPortrait } from "./helpers/MediaQueryHelpers";
+import Vibrant from 'node-vibrant'
+import { useState } from "react";
+import FolderIcon from '@mui/icons-material/Folder';
 
 export function Entry(props: {
   name: string;
@@ -9,8 +12,22 @@ export function Entry(props: {
   title: string;
   body?: string;
   items?: string[];
-  image?: string;
+  image: string;
 }) {
+
+  const [dashColor, setDashColor] = useState<string|undefined>("white")
+  // console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1');
+  // console.log(props.image);
+  
+  // // let v = Vibrant.from(props.image).useQuantizer(Vibrant.Quantizer.WebWorker)
+  // Vibrant.from('/home/mohammadah/dev/Personal/portfolio/src/assets/netvariant-landscape.png')
+  // new Vibrant(props.image)
+  // .getPalette((err, palette) => {
+  //   console.log(palette)
+  //   console.log(err)
+  //   setDashColor(palette?.Vibrant?.hex)
+  // })
+
   return (
     <Container>
       {/* <Row xs={12} md={2}> JAD this was the issue */}
@@ -32,15 +49,16 @@ export function Entry(props: {
               <Col xs={12} sm={3} children={props.location} />
               <Col xs={12} sm={4} children={props.date} />
             </Row>
-            {props.title ? <Container>{props.title}</Container> : null}
+            {props.title ? <p><u>{props.title}</u></p> : null}
             {props.body ? <Container>{props.body}</Container> : null}
             {props.items ? (
               <List sx={{
                 overflow:  !(isMobile() && isPortrait()) ? 'auto': undefined,
                 maxHeight: !(isMobile() && isPortrait()) ?  300: undefined,
-              }}>
+              }} dense>
                 {props.items.map((item) => (
                   <ListItem key={item}>
+                    <ListItemIcon><FolderIcon htmlColor={dashColor}/></ListItemIcon>
                     <ListItemText>{item}</ListItemText>
                   </ListItem>
                 ))}
