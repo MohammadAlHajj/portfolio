@@ -12,7 +12,7 @@ export default class Overview extends React.Component {
         "Overview",
         "A dedicated and persistent candidate seeking a full-time or part-time job.",
         "holder.js/800x494?text= &bg=373940",
-        null,
+        "/",
       ],
       ['Education', "Graduate of the prestigious American University of Beirut", eduImg,'/education'],
       ['Projects', "An assortment of wide ranging projects covered", projectsImg, '/projects'],

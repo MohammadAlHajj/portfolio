@@ -1,32 +1,18 @@
 import { Container, List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
 import { Col, Image, Row } from "react-bootstrap";
 import { isMobile, isPortrait } from "./helpers/MediaQueryHelpers";
-import Vibrant from 'node-vibrant'
-import { useState } from "react";
-import FolderIcon from '@mui/icons-material/Folder';
+import ListIcon from '@mui/icons-material/TaskAlt';
 
 export function Entry(props: {
   name: string;
   location: string;
   date: string;
   title: string;
+  bulletPointColor?: string;
   body?: string;
   items?: string[];
   image: string;
 }) {
-
-  const [dashColor, setDashColor] = useState<string|undefined>("white")
-  // console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1');
-  // console.log(props.image);
-  
-  // // let v = Vibrant.from(props.image).useQuantizer(Vibrant.Quantizer.WebWorker)
-  // Vibrant.from('/home/mohammadah/dev/Personal/portfolio/src/assets/netvariant-landscape.png')
-  // new Vibrant(props.image)
-  // .getPalette((err, palette) => {
-  //   console.log(palette)
-  //   console.log(err)
-  //   setDashColor(palette?.Vibrant?.hex)
-  // })
 
   return (
     <Container>
@@ -57,8 +43,8 @@ export function Entry(props: {
                 maxHeight: !(isMobile() && isPortrait()) ?  300: undefined,
               }} dense>
                 {props.items.map((item) => (
-                  <ListItem key={item}>
-                    <ListItemIcon><FolderIcon htmlColor={dashColor}/></ListItemIcon>
+                  <ListItem key={item} >
+                    <ListItemIcon><ListIcon fontSize="small"  htmlColor={props.bulletPointColor ?? 'gray'}/></ListItemIcon>
                     <ListItemText>{item}</ListItemText>
                   </ListItem>
                 ))}

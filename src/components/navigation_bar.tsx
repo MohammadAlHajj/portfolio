@@ -45,45 +45,6 @@ export function NavigationBar(props: { setModeFunc: MouseEventHandler<HTMLElemen
 
 
 
-  {/* <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton size="large" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Mohammad Al-Hajj
-          </Typography>
-          <Typography>
-            <Link to={"/"} title="Overview">
-              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                Overview
-              </Typography>
-            </Link>
-          </Typography>
-
-          <Link to={"/"} title="Overview">
-            Overview
-          </Link>
-          <Link to={"/education"} title="Education">
-            Education
-          </Link>
-          <Link to={"/experience"} title="Experience">
-            Experience
-          </Link>
-          <Link to={"/projects"} title="Projects">
-            Projects
-          </Link>
-          <Link to={"/skills"} title="Skills">
-            Skills
-          </Link>
-          <Button color="inherit" onClick={props.setModeFunc}>
-            {props.mode === "dark" && <LightModeIcon />}
-            {props.mode === "light" && <DarkModeIcon />}
-          </Button>
-        </Toolbar>
-      </AppBar>
-    </Box> */}
 
 
   // const useStyles = makeStyles((theme:any) => ({
@@ -118,10 +79,10 @@ export function NavigationBar(props: { setModeFunc: MouseEventHandler<HTMLElemen
         <Toolbar>
           {/* <IconButton className={classes.menuButton} color="inherit" aria-label="Menu" onClick={onMenuClick}> */}
           <IconButton size="large" edge="start" color="inherit" sx={{ mr: 2 }} aria-label="Menu" onClick={propsTB.onMenuClick}>
-            <MenuIcon  sx={{ mr: 2 }}/>
-            <Divider orientation="vertical" variant="middle" flexItem />
-            <Typography variant="h6" color="inherit">Mohammad Al-Hajj</Typography> 
+            <MenuIcon  sx={{ mr: 0 }}/>
           </IconButton>
+          {/* <Divider orientation="vertical" variant="middle" flexItem /> */}
+          <Typography variant="h6" color="inherit">Mohammad Al-Hajj</Typography> 
           <Divider/>
 
           {/* <Typography variant="h6" color="inherit">
@@ -138,7 +99,6 @@ export function NavigationBar(props: { setModeFunc: MouseEventHandler<HTMLElemen
             textColor="inherit"
           >      
           {Object.entries(pages).map(([key, value], index) =>
-          // <></>
             <Tab key={key} label={key} value={key} component={Link} to={value} color="inherit" />
             // <Link to={value} >
             //   <Button variant="contained" style={{padding:'1.35em'}}>{key}</Button>
